@@ -1,0 +1,13 @@
+<template>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">My App</div>
+		</div>
+
+		<ul class="nav navbar-nav">
+			<li repeat.for="item of router.navigation">
+				<a href.bind="item.href">${item.title}</a>
+			</li>
+		</ul>
+	</nav>
+</template>

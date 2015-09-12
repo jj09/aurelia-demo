@@ -1,0 +1,35 @@
+<template>
+
+	<div class="container">
+		<ul>
+			<li repeat.for="person of people">
+				<span show.bind="$parent.editing !== $index">
+					${person}
+					<button click.trigger="$parent.edit($index)">Edit</button>
+				</span>
+
+				<span show.bind="$parent.editing === $index">
+					<input type="text" value.bind="$parent.newValue" />
+					<button click.trigger="$parent.save($index)">Save</button>
+				</span>
+				
+
+				<button click.trigger="$parent.delete($index)">Delete</button>
+			</li>
+		</ul>
+	</div>
+
+	<div class="container">
+		<form class="form-inline">
+			<label>First Name:</label>
+			<input type="text" value.bind="firstName" class="form-control" />
+			<label>Last Name:</label>
+			<input type="text" value.bind="lastName" class="form-control" />
+
+			<button class="btn btn-create" click.trigger="create()">Create</button>
+
+			<b>Full Name:</b> <tt>${fullName}</tt>
+		</form>
+	</div>
+	
+</template>

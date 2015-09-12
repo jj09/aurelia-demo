@@ -1,0 +1,8 @@
+<template>
+	<h1 class="title">My repos:</h1>
+	<ul>
+		<li repeat.for="repo of repos">
+			<a href.bind="repo.html_url">${repo.name}</a>
+		</li>
+	</ul>
+</template>
