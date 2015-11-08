@@ -8,8 +8,15 @@ export class Github {
 	}
 
 	activate() {
-		return this.http
-		.get('https://api.github.com/users/jj09/repos')
-		.then(result => this.repos = JSON.parse(result.response));
+		let uri = 'https://api.github.com/users/Microsoft/repos?per_page=100&page=';
+		let results = [];
+
+		return Promise.all([
+		    this.http.get(uri+'0').then(response => results[0] = response.content),
+		    this.http.get(uri+'1').then(response => results[1] = response.content),
+		    this.http.get(uri+'2').then(response => results[2] = response.content)
+		]).then(() => {
+			this.repos = results[0].concat(results[1], results[2]);
+		});
 	}
 }

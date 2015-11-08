@@ -1,0 +1,23 @@
+<template>
+	<h1>Names:</h1>
+	<ul>
+		<li repeat.for="name of names">
+			<span show.bind="$parent.editing !== $index">
+				${name}		
+				<button click.trigger="$parent.edit($index)" >Edit</button>
+			</span>
+
+			<span show.bind="$parent.editing === $index">
+				<input type="text" value.bind="$parent.temp" />
+				<button click.trigger="$parent.save($index)">Save</button>
+			</span>
+
+			<button click.trigger="$parent.delete($index)">Delete</button>
+		</li>
+	</ul>
+	<hr>
+	<input type="text" value.bind="firstName" />
+	<input type="text" value.bind="lastName" />
+	${fullName}
+	<button click.trigger="create()">Create</button>
+</template>

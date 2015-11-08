@@ -4,22 +4,22 @@ export class App {
 
 		config.map([
 			{
-				route: ["", "people"],
-				moduleId: "people",
-				title: "People",
-				nav: true
+				route: ["","names"],
+				moduleId: "names",
+				nav: true,
+				title: "Names"
 			},
 			{
 				route: "about",
 				moduleId: "about",
-				title: "About",
-				nav: true
+				nav: true,
+				title: "About"
 			},
 			{
 				route: "github",
 				moduleId: "github",
-				title: "github",
-				nav: true
+				nav: true,
+				title: "github"
 			}
 		]);
 	}
